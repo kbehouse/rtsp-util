@@ -14,11 +14,11 @@ func main() {
 		fmt.Println("You should inpout RTSP URL, len(os.Args) != 2")
 		return
 	}
-	rtstURL := os.Args[1]
+	rtspURL := os.Args[1]
 
-	fmt.Println("Show URL:", rtstURL)
+	fmt.Println("Show URL:", rtspURL)
 
-	fps:=0
+	fps := 0
 	go func() {
 		c := time.Tick(1 * time.Second)
 		for now := range c {
@@ -27,8 +27,8 @@ func main() {
 		}
 	}()
 
-	webcam, _ := gocv.OpenVideoCapture(rtstURL)
-	window := gocv.NewWindow(rtstURL)
+	webcam, _ := gocv.OpenVideoCapture(rtspURL)
+	window := gocv.NewWindow(rtspURL)
 	img := gocv.NewMat()
 
 	for {

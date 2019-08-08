@@ -29,11 +29,12 @@ func main() {
 
 	webcam, _ := gocv.OpenVideoCapture(rtspURL)
 	window := gocv.NewWindow(rtspURL)
+	window.ResizeWindow(800, 600)
 	img := gocv.NewMat()
 
 	for {
 		webcam.Read(&img)
-		// fmt.Printf("time: %v, size: %v\n", time.Now(), img.Size())
+		fmt.Printf("time: %v, size: %v\n", time.Now(), img.Size())
 		window.IMShow(img)
 		window.WaitKey(1)
 		fps++
